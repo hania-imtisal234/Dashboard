@@ -1,0 +1,50 @@
+.Header {
+  background-color: #4682a9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30%;
+  color: #f6f4eb;
+}
+
+.left-Container {
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+}
+.webiste-name {
+  font-size: 120%;
+  font-style: italic;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  color: #f6f4eb;
+
+  margin-left: 15px;
+}
+.logo {
+  height: auto;
+  margin-left: 2%;
+}
+.right-Container {
+  text-align: Right;
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.Aboutus-PageLink {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.avatar {
+  margin-right: 2%;
+}
