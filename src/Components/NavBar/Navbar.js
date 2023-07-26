@@ -16,10 +16,10 @@ function Navbar() {
         </div>
         <div className="right-Container">
           <div className="Services-PageLink">
-            <Link style={{ color: "#F6F4EB" }}>Services </Link>
+            <Link className="custom-link">Services </Link>
           </div>
           <div className="Aboutus-PageLink">
-            <Link style={{ color: "#F6F4EB" }}>AboutUs </Link>
+            <Link className="custom-link">AboutUs </Link>
           </div>
           <div className="avatar">
             <AccountCircleIcon />

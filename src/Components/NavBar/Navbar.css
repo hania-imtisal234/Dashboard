@@ -43,8 +43,13 @@
 .Aboutus-PageLink {
   margin-left: 10%;
   margin-right: 10%;
+  color: #f6f4eb;
 }
 
 .avatar {
   margin-right: 2%;
+}
+
+.custom-link {
+  color: #f6f4eb;
 }
