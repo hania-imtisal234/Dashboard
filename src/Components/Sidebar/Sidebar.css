@@ -1,0 +1,32 @@
+.Menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #749bc2;
+  width: 20%;
+  height: 440px;
+}
+.Menu-collapsed {
+  width: 6%;
+}
+.Menu-expanded {
+  width: 20%;
+}
+button {
+  background-color: #4682a9;
+  border-color: #4682a9;
+  border-radius: 5px;
+  text-align: center;
+  margin: 2px;
+  margin-top: 240px;
+}
+
+.div-button {
+  margin-bottom: 5px;
+}
+.arrow {
+  color: #f6f4eb;
+}
+
+.collapsed {
+  width: auto;
+}
