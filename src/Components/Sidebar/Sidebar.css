@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   background-color: #749bc2;
-  width: 20%;
-  height: 440px;
+  width: 10%;
+  height: 450px;
 }
 .Menu-collapsed {
   width: 6%;
