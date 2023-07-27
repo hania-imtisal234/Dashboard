@@ -10,11 +10,6 @@ import { items } from "../../Constants/Constants";
 
 const Sidebar = () => {
   const [isCollapsed, setisCollapsed] = useState(false);
-  //   const items = [
-  //     { icon: <LanguageIcon />, itemName: "All Countries" },
-  //     { icon: <LocationOnIcon />, itemName: "My country" },
-  //     { icon: <InfoIcon />, itemName: "General Info" },
-  //   ];
 
   const renderSidebarItems = (items) => {
     if (items.length) {
