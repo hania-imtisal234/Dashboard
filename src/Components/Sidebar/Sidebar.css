@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: column;
   background-color: #749bc2;
-  width: 10%;
+  width: 5%;
   height: 450px;
 }
 .Menu-collapsed {
   width: 6%;
 }
 .Menu-expanded {
-  width: 20%;
+  width: 10%;
 }
 button {
   background-color: #4682a9;
@@ -29,4 +29,62 @@ button {
 
 .collapsed {
   width: auto;
+}
+
+@media screen and (min-height: 350px) {
+  .Menu {
+    display: flex;
+    flex-direction: column;
+    background-color: #749bc2;
+    max-width: 100%;
+    height: 100vh;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .Menu {
+    display: flex;
+    flex-direction: column;
+    background-color: #749bc2;
+    max-width: 100%;
+    height: 100vh;
+  }
+  .Menu-collapsed {
+    width: 8vh;
+  }
+  .Menu-expanded {
+    width: 15vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Menu {
+    display: flex;
+    flex-direction: column;
+    background-color: #749bc2;
+    max-width: 100%;
+    height: 100vh;
+  }
+  .Menu-collapsed {
+    width: 10vh;
+  }
+  .Menu-expanded {
+    width: 20vh;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .Menu {
+    display: flex;
+    flex-direction: column;
+    background-color: #749bc2;
+    max-width: 100%;
+    height: 100vh;
+  }
+  .Menu-collapsed {
+    width: 12vh;
+  }
+  .Menu-expanded {
+    width: 25vh;
+  }
 }
