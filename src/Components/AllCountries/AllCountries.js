@@ -7,13 +7,11 @@ import { CONTINENTS } from "../../Constants/Constants";
 
 const AllCountries = () => {
   const [countryList, setCountryList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const checkDataAvailibility = () => {
-    setIsLoading(!countryList);
-  };
+  const [isLoading, setIsLoading] = useState(false);
 
   const getData = async () => {
     try {
+      setIsLoading(true);
       const response = await fetch(countryListAPI);
       const data = await response.json();
 
@@ -28,8 +26,10 @@ const AllCountries = () => {
         });
       }
       setCountryList(countryData);
+      setIsLoading(false);
     } catch (err) {
-      console.log(API_ERROR, err);
+      setIsLoading(false);
+      throw new Error(API_ERROR);
       throw new Error(err);
     }
   };
@@ -52,13 +52,13 @@ const AllCountries = () => {
         </div>
         <div className="rows-span-3 bg-my-white -mt-4">
           <div class="grid grid-cols-8  place-items-center m-5  bg-my-white xs:grid-cols-2  sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 ">
-            {!isLoading ? (
+            {isLoading ? (
               <div>
-                <h4>The API is unable to fetch Data</h4>
+                <h4 className="w-45 text-my-white">Loading...</h4>
               </div>
             ) : !countryList.length ? (
-              <div className="cols-span-8 place-items-center m-30">
-                <h4 className="text-dark-blue">Loading...</h4>
+              <div>
+                <h4>Country List is empty...</h4>
               </div>
             ) : (
               countryList.map((country, index) => (
@@ -78,3 +78,25 @@ const AllCountries = () => {
   );
 };
 export default AllCountries;
+
+// {
+//   !isLoading ? (
+//     <div>
+//       <h4>The API is unable to fetch Data</h4>
+//     </div>
+//   ) : !countryList.length ? (
+//     <div className="cols-span-8 place-items-center m-30">
+//       <h4 className="text-dark-blue">Loading...</h4>
+//     </div>
+//   ) : (
+//     countryList.map((country, index) => (
+//       <div key={index} className="xs:col-span-2 sm:col-span-2 my-2 ">
+//         <Card
+//           name={country.name}
+//           flag={country.flag}
+//           continent={country.continent}
+//         />
+//       </div>
+//     ))
+//   );
+// }
