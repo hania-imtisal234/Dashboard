@@ -78,25 +78,3 @@ const AllCountries = () => {
   );
 };
 export default AllCountries;
-
-// {
-//   !isLoading ? (
-//     <div>
-//       <h4>The API is unable to fetch Data</h4>
-//     </div>
-//   ) : !countryList.length ? (
-//     <div className="cols-span-8 place-items-center m-30">
-//       <h4 className="text-dark-blue">Loading...</h4>
-//     </div>
-//   ) : (
-//     countryList.map((country, index) => (
-//       <div key={index} className="xs:col-span-2 sm:col-span-2 my-2 ">
-//         <Card
-//           name={country.name}
-//           flag={country.flag}
-//           continent={country.continent}
-//         />
-//       </div>
-//     ))
-//   );
-// }
