@@ -22,7 +22,7 @@ export const CONTINENTS = [
   "Antarctica",
 ];
 
-export const API = "https://restcountries.com/v3.1/all";
+export const countryListAPI = "https://restcountries.com/v3.1/all";
 export const API_ERROR = "Can't fetch Data from API";
 
 export const paths = [

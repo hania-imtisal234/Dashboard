@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const Card = ({ name, flag, continent }) => {
   return (
     <div>
-      {/* to={`/${itemName.replace(/\s/g, "")}`} */}
       <Link to={`/${name.replace(/\s/g, "")}`}>
         <div className=" w-40 h-52 bg-sky-blue rounded-md">
           <div className="img-container w-35 h-25 p-2">
