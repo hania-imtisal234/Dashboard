@@ -16,10 +16,10 @@ export const CONTINENTS = [
   "Asia",
   "Africa",
   "Europe",
-  "NorthAmerica",
-  "SouthAmerica",
+  "North America",
+  "South America",
   "Australia",
-  "Antarctica",
+  "Oceania",
 ];
 
 export const countryListAPI = "https://restcountries.com/v3.1/all";

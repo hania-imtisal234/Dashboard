@@ -11,12 +11,14 @@ const Item = ({ icon, itemName = null, isCollapsed }) => {
   return (
     <div
       className={`Sidebar-Item ${isClicked ? "clicked" : "not-clicked"}`}
-      onClick={changeColor}
+      onClick={() => {
+        setIsClicked(true);
+      }}
     >
       {!isCollapsed ? (
-        <div className="item-container-Expanded">
+        <div className="item-container-Expanded selectedClass">
           <Link to={`/${itemName.replace(/\s/g, "")}`}>
-            <div className="items">
+            <div className={`items ${isClicked && "bg-dark-blue"}`}>
               <div className="icon">{icon}</div>
               <div className="item-name">{itemName}</div>
             </div>
