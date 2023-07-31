@@ -39,6 +39,10 @@
   color: #f6f4eb;
 }
 
+.Sidebar-Item.clicked {
+  background-color: #4682a9;
+}
+
 @media screen and (max-width: 640px) {
   .Sidebar-Item {
     text-align: center;

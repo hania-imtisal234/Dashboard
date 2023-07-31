@@ -7,10 +7,11 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useState } from "react";
 import { items } from "../../Constants/Constants";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [isCollapsed, setisCollapsed] = useState(false);
-
+  const [currentItemSelected, setCurrentItemSelected] = useState(false);
   const renderSidebarItems = (items) => {
     if (items.length) {
       return items.map((item, index) => {

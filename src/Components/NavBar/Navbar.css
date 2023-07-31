@@ -10,14 +10,15 @@
 .left-Container {
   display: flex;
   flex-direction: row;
-  width: 20%;
+  width: 50px;
 }
 .webiste-name {
   font-size: 120%;
   font-style: italic;
   font-weight: bold;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: #f6f4eb;
+  width: 30%;
 
   margin-left: 15px;
 }
