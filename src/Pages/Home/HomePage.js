@@ -6,11 +6,11 @@ import { WEBSITE_NAME } from "../../Constants/Constants";
 const HomePage = () => {
   return (
     <div className="bg-my-white h-30">
-      <div className="grid grid-cols-8 gap-0 h-full">
+      <div className="grid grid-cols-8 gap-0 ">
         <div className="xs:col-span-2 h-full sm:col-span-2 md:col-span-1 lg:col-span-1">
           <Sidebar />
         </div>
-        <div className="xs:col-span-6 place-items-center md:col-span-7 mb-24">
+        <div className="xs:col-span-6 place-items-center md:col-span-7 mb-28">
           <div className="bg-sky-blue grid grid-rows-30 gap-3 m-2 mt-6 rounded-md ">
             <div className="bg-my-blue rows-span-6 p-4 m-2 rounded-md">
               <h2 className="text-white text-xl">

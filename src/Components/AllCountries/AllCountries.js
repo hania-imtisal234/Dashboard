@@ -1,15 +1,15 @@
 import "./AllCountries.css";
 import Card from "../Card/Card";
 import { useState, useEffect } from "react";
+import { CONTINENTS } from "../../Constants/Constants";
 import { countryListAPI } from "../../Constants/Constants";
 import { API_ERROR } from "../../Constants/Constants";
-import { CONTINENTS } from "../../Constants/Constants";
+import { Continents } from "../../Constants/Constants";
 
 const AllCountries = () => {
   const [countryList, setCountryList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedContinent, setSelectedContinent] = useState("all");
-  const [selectedContinentList, setSelectedContinentList] = useState([]);
 
   const getData = async () => {
     try {
@@ -27,50 +27,51 @@ const AllCountries = () => {
           continent: country.continents,
         });
       }
+
       let filteredCountryList = [];
       switch (selectedContinent) {
         case "all":
           setCountryList(countryData);
           break;
-        case "Asia":
+        case Continents.Asia:
           filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === "Asia"
+            (country) => country.continent[0] === Continents.Asia
           );
           setCountryList(filteredCountryList);
           break;
-        case "Africa":
+        case Continents.Africa:
           filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === "Africa"
+            (country) => country.continent[0] === Continents.Africa
           );
           setCountryList(filteredCountryList);
           break;
-        case "Europe":
+        case Continents.Europe:
           filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === "Europe"
+            (country) => country.continent[0] === Continents.Europe
           );
           setCountryList(filteredCountryList);
           break;
-        case "North America":
+        case Continents.NorthAmerica:
           filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === "North America"
+            (country) => country.continent[0] === Continents.NorthAmerica
           );
           setCountryList(filteredCountryList);
           break;
-        case "South America":
+        case Continents.SouthAmerica:
           filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === "South America"
+            (country) => country.continent[0] === Continents.SouthAmerica
           );
           setCountryList(filteredCountryList);
           break;
-        case "Australia":
+        case Continents.Australia:
           filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === "Australia"
+            (country) => country.continent[0] === Continents.Australia
           );
           setCountryList(filteredCountryList);
           break;
-        case "Oceania":
+        case Continents.Oceania:
           filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === "Oceania"
+            (country) => country.continent[0] === Continents.Oceania
           );
           setCountryList(filteredCountryList);
           break;

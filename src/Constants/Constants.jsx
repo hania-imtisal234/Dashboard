@@ -30,3 +30,13 @@ export const paths = [
   { path: "MyCountry" },
   { path: "GeneralInfo" },
 ];
+
+export const Continents = {
+  Asia: "Asia",
+  Africa: "Africa",
+  Europe: "Europe",
+  NorthAmerica: "North America",
+  SouthAmerica: "South America",
+  Australia: "Australia",
+  Oceania: "Oceania",
+};

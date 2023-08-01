@@ -11,7 +11,9 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [isCollapsed, setisCollapsed] = useState(false);
+
   const [currentItemSelected, setCurrentItemSelected] = useState(false);
+
   const renderSidebarItems = (items) => {
     if (items.length) {
       return items.map((item, index) => {
