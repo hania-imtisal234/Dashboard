@@ -1,13 +1,15 @@
 import "./AllCountries.css";
 import Card from "../Card/Card";
 import { useState, useEffect } from "react";
+import { CONTINENTS } from "../../Constants/Constants";
 import { countryListAPI } from "../../Constants/Constants";
 import { API_ERROR } from "../../Constants/Constants";
-import { CONTINENTS } from "../../Constants/Constants";
+import { Continents } from "../../Constants/Constants";
 
 const AllCountries = () => {
   const [countryList, setCountryList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedContinent, setSelectedContinent] = useState("all");
 
   const getData = async () => {
     try {
@@ -25,27 +27,84 @@ const AllCountries = () => {
           continent: country.continents,
         });
       }
-      setCountryList(countryData);
+
+      let filteredCountryList = [];
+      switch (selectedContinent) {
+        case "all":
+          setCountryList(countryData);
+          break;
+        case Continents.Asia:
+          filteredCountryList = countryData.filter(
+            (country) => country.continent[0] === Continents.Asia
+          );
+          setCountryList(filteredCountryList);
+          break;
+        case Continents.Africa:
+          filteredCountryList = countryData.filter(
+            (country) => country.continent[0] === Continents.Africa
+          );
+          setCountryList(filteredCountryList);
+          break;
+        case Continents.Europe:
+          filteredCountryList = countryData.filter(
+            (country) => country.continent[0] === Continents.Europe
+          );
+          setCountryList(filteredCountryList);
+          break;
+        case Continents.NorthAmerica:
+          filteredCountryList = countryData.filter(
+            (country) => country.continent[0] === Continents.NorthAmerica
+          );
+          setCountryList(filteredCountryList);
+          break;
+        case Continents.SouthAmerica:
+          filteredCountryList = countryData.filter(
+            (country) => country.continent[0] === Continents.SouthAmerica
+          );
+          setCountryList(filteredCountryList);
+          break;
+        case Continents.Australia:
+          filteredCountryList = countryData.filter(
+            (country) => country.continent[0] === Continents.Australia
+          );
+          setCountryList(filteredCountryList);
+          break;
+        case Continents.Oceania:
+          filteredCountryList = countryData.filter(
+            (country) => country.continent[0] === Continents.Oceania
+          );
+          setCountryList(filteredCountryList);
+          break;
+      }
+
       setIsLoading(false);
     } catch (err) {
       setIsLoading(false);
       throw new Error(API_ERROR);
-      throw new Error(err);
     }
   };
 
   useEffect(() => {
     getData();
   }, []);
+  useEffect(() => {
+    getData();
+  }, [selectedContinent]);
 
   return (
     <div>
       <div className="grid grid-rows-10 gap-3">
         <div className="rows-span-1 bg-my-white mt-6 mx-8">
           <div className="flex-row w-full">
-            {CONTINENTS.map((continents) => (
-              <button className="my-2 gap-4 bg-dark-blue w-28">
-                <tag className="text-my-white">{continents}</tag>
+            {CONTINENTS.map((continent) => (
+              <button
+                key={continent}
+                className="my-2 gap-4 bg-dark-blue w-28"
+                onClick={() => {
+                  setSelectedContinent(continent);
+                }}
+              >
+                <tag className="text-my-white">{continent}</tag>
               </button>
             ))}
           </div>
@@ -58,7 +117,7 @@ const AllCountries = () => {
               </div>
             ) : !countryList.length ? (
               <div>
-                <h4>Country List is empty...</h4>
+                <h4 className="text-my-white">Country List is empty...</h4>
               </div>
             ) : (
               countryList.map((country, index) => (
