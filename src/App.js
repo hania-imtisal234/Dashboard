@@ -6,9 +6,11 @@ import AllCountries from "./Components/AllCountries/AllCountries";
 import AllCountriesPage from "./Pages/AllCountriesPage/AllCountriesPage";
 import HomePage from "./Pages/Home/HomePage";
 import ProfilePage from "./Pages/Profile/Profile";
-import { HOME } from "./Routes/Routes";
+import { HOME, MYCOUNTRY } from "./Routes/Routes";
 import { ALLCOUNTRIES } from "./Routes/Routes";
 import { PROFILE } from "./Routes/Routes";
+import CountryDetailsPage from "./Pages/CountryDetailsPage/CountryDetailsPage";
+import NeighboringCountries from "./Pages/NeighboringCountries/NeighboringCountries";
 const App = () => {
   return (
     <div className="bg-my-white h-full">
@@ -17,7 +19,12 @@ const App = () => {
         <Routes>
           <Route path={HOME} element={<HomePage />} />
           <Route path={ALLCOUNTRIES} element={<AllCountriesPage />} />
+          <Route
+            path={"/AllCountries/:countryName"}
+            element={<CountryDetailsPage />}
+          />
           <Route path={PROFILE} element={<ProfilePage />} />
+          <Route path={MYCOUNTRY} element={<NeighboringCountries />} />
         </Routes>
       </BrowserRouter>
     </div>

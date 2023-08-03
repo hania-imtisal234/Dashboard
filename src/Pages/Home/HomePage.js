@@ -5,9 +5,9 @@ import { WEBSITE_NAME } from "../../Constants/Constants";
 
 const HomePage = () => {
   return (
-    <div className="bg-my-white h-30">
+    <div className="bg-my-white h-screen">
       <div className="grid grid-cols-8 gap-0 ">
-        <div className="xs:col-span-2 h-full sm:col-span-2 md:col-span-1 lg:col-span-1">
+        <div className="h-screen xs:col-span-2 sm:col-span-2 md:col-span-1 lg:col-span-1">
           <Sidebar />
         </div>
         <div className="xs:col-span-6 place-items-center md:col-span-7 mb-28">
