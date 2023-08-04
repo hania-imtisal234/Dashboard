@@ -124,6 +124,7 @@ const AllCountries = () => {
                 <div key={index} className="xs:col-span-2 sm:col-span-2 my-2 ">
                   <Card
                     name={country.name}
+                    common={country.common}
                     flag={country.flag}
                     continent={country.continent}
                   />

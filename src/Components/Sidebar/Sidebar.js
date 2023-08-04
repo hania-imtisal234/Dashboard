@@ -36,7 +36,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className={`Menu ${isCollapsed ? "Menu-collapsed" : "Menu-expanded"}`}>
+    <div className={`Menu ${isCollapsed ? "Menu-collapsed" : ""}`}>
       <div className={`not-collapsed ${isCollapsed ? "collapsed" : ""}`}>
         {renderSidebarItems(items)}
         <div className="div-button">

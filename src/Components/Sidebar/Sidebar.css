@@ -1,14 +1,10 @@
 .Menu {
-  display: flex;
-  flex-direction: column;
   background-color: #749bc2;
-  width: 5%;
 }
 .Menu-collapsed {
   width: 6%;
 }
 .Menu-expanded {
-  width: 10%;
 }
 button {
   background-color: #4682a9;
@@ -32,24 +28,17 @@ button {
 
 @media screen and (min-height: 350px) {
   .Menu {
-    display: flex;
-    flex-direction: column;
-    background-color: #749bc2;
-    max-width: 100%;
     height: 100vh;
   }
 }
 
 @media screen and (min-width: 360px) {
   .Menu {
-    display: flex;
-    flex-direction: column;
-    background-color: #749bc2;
     max-width: 100%;
     height: 100%;
   }
   .Menu-collapsed {
-    width: 4vh;
+    width: 8vh;
   }
   .Menu-expanded {
     width: 14vh;
@@ -71,14 +60,11 @@ button {
 
 @media screen and (min-width: 640px) {
   .Menu {
-    display: flex;
-    flex-direction: column;
-    background-color: #749bc2;
     max-width: 100%;
     height: 100%;
   }
   .Menu-collapsed {
-    width: 8vh;
+    width: 10vh;
   }
   .Menu-expanded {
     width: 15vh;
@@ -100,9 +86,6 @@ button {
 
 @media screen and (min-width: 768px) {
   .Menu {
-    display: flex;
-    flex-direction: column;
-    background-color: #749bc2;
     max-width: 100%;
     height: 100%;
   }
@@ -129,10 +112,6 @@ button {
 
 @media screen and (min-width: 1100px) {
   .Menu {
-    display: flex;
-    flex-direction: column;
-    background-color: #749bc2;
-    max-width: 100%;
     height: 100%;
   }
   .Menu-collapsed {
