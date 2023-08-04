@@ -1,15 +1,13 @@
 import "./Card.css";
 import { Link, useNavigate } from "react-router-dom";
-import CountryDetails from "../CountryDetails/CountryDetails";
 const Card = ({ name, flag, continent }) => {
   const navigate = useNavigate();
   return (
     <div>
-      {/* <Link to={`/${name.replace(/\s/g, "")}`}> */}
       <div
         className=" w-40 h-52 bg-sky-blue rounded-md"
         onClick={() => {
-          navigate(`${name}`);
+          navigate(name);
         }}
       >
         <div className="img-container w-35 h-25 p-2">

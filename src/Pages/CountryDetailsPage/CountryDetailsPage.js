@@ -7,13 +7,11 @@ import { useState, useEffect } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { ALLCOUNTRIES } from "../../Routes/Routes";
 import { Link } from "react-router-dom";
-import CountryDetails from "../../Components/CountryDetails/CountryDetails";
 
 const CountryDetailsPage = () => {
   const params = useParams();
 
   const selectedCountryName = params.countryName;
-  console.log(selectedCountryName);
   const [countryDetails, setCountryDetails] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -23,7 +21,7 @@ const CountryDetailsPage = () => {
       const url = `https://restcountries.com/v3.1/name/${selectedCountryName}/`;
       const response = await fetch(url);
       const countryData = await response.json();
-      console.log(countryData);
+
       const { name, capital, continents, flags, currencies, maps } =
         countryData[0];
       const tempObj = {
@@ -35,18 +33,12 @@ const CountryDetailsPage = () => {
         countryMap: maps?.googleMaps,
       };
 
-      console.log("here");
       const countryCode = Object.keys(tempObj.countryCurrency);
-      console.log(countryCode);
       const currencyName = tempObj.countryCurrency[countryCode[0]].name;
-      console.log(currencyName);
       const currencySymbol = tempObj.countryCurrency[countryCode[0]].symbol;
-
-      console.log("now here");
       tempObj.name = currencyName;
       tempObj.symbol = currencySymbol;
       console.log(tempObj);
-
       setCountryDetails(tempObj);
       setIsLoading(false);
     } catch (err) {

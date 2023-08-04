@@ -11,6 +11,7 @@ import { ALLCOUNTRIES } from "./Routes/Routes";
 import { PROFILE } from "./Routes/Routes";
 import CountryDetailsPage from "./Pages/CountryDetailsPage/CountryDetailsPage";
 import NeighboringCountries from "./Pages/NeighboringCountries/NeighboringCountries";
+import { COUNTRYDETAILS } from "./Routes/Routes";
 const App = () => {
   return (
     <div className="bg-my-white h-full">
@@ -19,10 +20,7 @@ const App = () => {
         <Routes>
           <Route path={HOME} element={<HomePage />} />
           <Route path={ALLCOUNTRIES} element={<AllCountriesPage />} />
-          <Route
-            path={"/AllCountries/:countryName"}
-            element={<CountryDetailsPage />}
-          />
+          <Route path={COUNTRYDETAILS} element={<CountryDetailsPage />} />
           <Route path={PROFILE} element={<ProfilePage />} />
           <Route path={MYCOUNTRY} element={<NeighboringCountries />} />
         </Routes>

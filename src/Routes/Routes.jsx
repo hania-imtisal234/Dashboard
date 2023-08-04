@@ -5,3 +5,4 @@ export const PROFILE = "/Profile";
 export const ALLCOUNTRIES = "/AllCountries";
 export const MYCOUNTRY = "/MyCountry";
 export const GENERALINFO = "/GeneralInfo";
+export const COUNTRYDETAILS = "/AllCountries/:countryName";

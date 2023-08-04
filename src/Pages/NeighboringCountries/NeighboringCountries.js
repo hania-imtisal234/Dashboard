@@ -2,14 +2,24 @@ import React from "react";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import { API_ERROR } from "../../Constants/Constants";
 
 const NeighboringCountries = () => {
   const [inputCountry, setInputCountry] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const getInput = (event) => {
     setInputCountry(event.target.value);
   };
   const handleClick = (e) => {
     setInputCountry("");
+  };
+  const getAPIData = async () => {
+    try {
+      setIsLoading(true);
+    } catch (err) {
+      setIsLoading(false);
+      throw new Error(API_ERROR);
+    }
   };
 
   return (
