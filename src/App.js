@@ -6,7 +6,7 @@ import AllCountries from "./Components/AllCountries/AllCountries";
 import AllCountriesPage from "./Pages/AllCountriesPage/AllCountriesPage";
 import HomePage from "./Pages/Home/HomePage";
 import ProfilePage from "./Pages/Profile/Profile";
-import { HOME, MYCOUNTRY } from "./Routes/Routes";
+import { HOME, MYCOUNTRY, NEIGHBORINGCOUNTRIES } from "./Routes/Routes";
 import { ALLCOUNTRIES } from "./Routes/Routes";
 import { PROFILE } from "./Routes/Routes";
 import CountryDetailsPage from "./Pages/CountryDetailsPage/CountryDetailsPage";
@@ -21,6 +21,7 @@ const App = () => {
           <Route path={HOME} element={<HomePage />} />
           <Route path={ALLCOUNTRIES} element={<AllCountriesPage />} />
           <Route path={COUNTRYDETAILS} element={<CountryDetailsPage />} />
+          <Route path={NEIGHBORINGCOUNTRIES} element={<CountryDetailsPage />} />
           <Route path={PROFILE} element={<ProfilePage />} />
           <Route path={MYCOUNTRY} element={<NeighboringCountries />} />
         </Routes>
