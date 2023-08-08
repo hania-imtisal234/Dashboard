@@ -42,7 +42,7 @@ const NeighboringCountries = () => {
 
           const { borders } = inputCountryData[0];
           const inputCountryBorder = {
-            borders: borders,
+            borders,
           };
 
           const neighbours = [];
@@ -73,8 +73,6 @@ const NeighboringCountries = () => {
       throw new Error(API_ERROR);
     }
   };
-
-  useEffect(() => {}, [inputCountry]);
 
   return (
     <div className="h-screen">
