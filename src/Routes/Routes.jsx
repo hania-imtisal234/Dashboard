@@ -6,3 +6,4 @@ export const ALLCOUNTRIES = "/AllCountries";
 export const MYCOUNTRY = "/MyCountry";
 export const GENERALINFO = "/GeneralInfo";
 export const COUNTRYDETAILS = "/AllCountries/:countryName";
+export const NEIGHBORING_COUNTRIES = "/MyCountry/:countryName";
