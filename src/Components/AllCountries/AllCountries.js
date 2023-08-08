@@ -110,7 +110,7 @@ const AllCountries = () => {
           </div>
         </div>
         <div className="rows-span-3 bg-my-white -mt-4">
-          <div class="grid grid-cols-8  place-items-center m-5  bg-my-white xs:grid-cols-2  sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 ">
+          <div className="grid grid-cols-8  place-items-center m-5  bg-my-white xs:grid-cols-2  sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 ">
             {isLoading ? (
               <div>
                 <h4 className="w-45 text-my-white">Loading...</h4>
@@ -121,7 +121,10 @@ const AllCountries = () => {
               </div>
             ) : (
               countryList.map((country, index) => (
-                <div key={index} className="xs:col-span-2 sm:col-span-2 my-2 ">
+                <div
+                  key={index}
+                  className="card xs:col-span-2 sm:col-span-2 my-2 "
+                >
                   <Card
                     name={country.name}
                     common={country.common}

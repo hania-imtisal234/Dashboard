@@ -18,6 +18,7 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path={HOME} element={<HomePage />} />
           <Route path={ALLCOUNTRIES} element={<AllCountriesPage />} />
           <Route path={COUNTRYDETAILS} element={<CountryDetailsPage />} />

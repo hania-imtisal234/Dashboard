@@ -24,7 +24,6 @@ const Card = ({ name, flag, continent }) => {
           </div>
         </div>
       </div>
-      {/* </Link> */}
     </div>
   );
 };

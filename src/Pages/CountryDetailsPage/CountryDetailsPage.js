@@ -61,13 +61,13 @@ const CountryDetailsPage = () => {
         </div>
         <div className="xs:col-span-6 place-items-center md:col-span-7">
           <div className="grid grid-rows-1 gap-0">
-            <div className="rows-span-1 -m-6">
-              <Link to={ALLCOUNTRIES}>
+            <Link to={-1}>
+              <div className="rows-span-1 -m-6">
                 <button className="mt-8 p-1 xs:ml-10 md:ml-8">
                   <ArrowBackIosNewIcon className="arrow" />
                 </button>
-              </Link>
-            </div>
+              </div>
+            </Link>
             <div className="rows-span-1">
               <div className="w-auto h-74 bg-sky-blue rounded-md place-item-center m-10">
                 {isLoading ? (

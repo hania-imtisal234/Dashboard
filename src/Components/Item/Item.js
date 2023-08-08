@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 
 const Item = ({ icon, itemName = null, isCollapsed }) => {
   const [isClicked, setIsClicked] = useState(false);
-  const changeColor = () => {
-    setIsClicked(!isClicked);
-  };
 
   return (
     <div
@@ -28,10 +25,12 @@ const Item = ({ icon, itemName = null, isCollapsed }) => {
         </div>
       ) : (
         <div className="item-container-Collapsed">
-          <div className={`items ${isClicked && "bg-dark-blue"}`}>
-            <div className="icon">{icon}</div>
-            <div className="item-name">{(itemName = "")}</div>
-          </div>
+          <Link to={`/${itemName.replace(/\s/g, "")}`}>
+            <div className={`items ${isClicked && "bg-dark-blue"}`}>
+              <div className="icon">{icon}</div>
+              <div className="item-name">{(itemName = "")}</div>
+            </div>
+          </Link>
         </div>
       )}
     </div>
