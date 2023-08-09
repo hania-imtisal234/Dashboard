@@ -24,7 +24,7 @@ const NeighboringCountries = () => {
   const getInput = (event) => {
     setInputCountry(event.target.value);
   };
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     if (!inputCountry.trim()) {
       setErrorMessage(emptyInputErrorMessage);
       setAsianErrorMessage("");
@@ -32,10 +32,14 @@ const NeighboringCountries = () => {
     }
     setErrorMessage("");
     setIsLoading(true);
-    getNeighbours();
+    try {
+      await getNeighbours();
+    } catch (error) {
+      throw new Error(API_ERROR);
+    }
   };
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = async (event) => {
     if (event.key === "Enter") {
       if (!inputCountry.trim()) {
         setErrorMessage(emptyInputErrorMessage);
@@ -43,7 +47,12 @@ const NeighboringCountries = () => {
       } else {
         setErrorMessage("");
         setIsLoading(true);
-        getNeighbours();
+
+        try {
+          await getNeighbours();
+        } catch (error) {
+          throw new Error(API_ERROR);
+        }
       }
     }
   };
@@ -81,7 +90,7 @@ const NeighboringCountries = () => {
           }
           if (belongsToFilteredCountryList) {
             const { borders } = inputCountryData[0];
-            if (!borders || borders.length === 0) {
+            if (!borders) {
               setAsianErrorMessage(noBorderErrorMessage);
               setIsLoading(false);
               return;
