@@ -12,3 +12,7 @@
   background-color: #f0f0f0;
   transform: scaleY(1.05);
 }
+
+.selected {
+  background-color: #91c8e4;
+}

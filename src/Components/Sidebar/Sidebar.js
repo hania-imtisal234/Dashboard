@@ -1,8 +1,5 @@
 import "./Sidebar.css";
 import Item from "../Item/Item";
-import InfoIcon from "@mui/icons-material/Info";
-import LanguageIcon from "@mui/icons-material/Language";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useState } from "react";
@@ -10,35 +7,38 @@ import { items } from "../../Constants/Constants";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-  const [isCollapsed, setisCollapsed] = useState(false);
-
-  const [currentItemSelected, setCurrentItemSelected] = useState(false);
-
-  const renderSidebarItems = (items) => {
-    if (items.length) {
-      return items.map((item, index) => {
-        return (
-          <div key={index} className="Sidebar-Container">
-            <Item
-              icon={item.icon}
-              itemName={item.itemName}
-              isCollapsed={isCollapsed}
-            />
-          </div>
-        );
-      });
-    }
-    return null;
-  };
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [currentItemSelected, setCurrentItemSelected] = useState("");
 
   const handleClick = () => {
-    setisCollapsed(!isCollapsed);
+    setIsCollapsed(!isCollapsed);
+  };
+
+  const handleItemClick = (itemName) => {
+    setCurrentItemSelected(itemName);
   };
 
   return (
     <div className={`Menu ${isCollapsed ? "Menu-collapsed" : ""}`}>
-      <div className={`not-collapsed ${isCollapsed ? "collapsed" : ""}`}>
-        {renderSidebarItems(items)}
+      <div className="not-collapsed">
+        {items.map((item, index) => {
+          return (
+            <div
+              key={index}
+              className={`Sidebar-Container ${
+                currentItemSelected === item.itemName ? "bg-dark-blue" : ""
+              }`}
+            >
+              <Item
+                icon={item.icon}
+                itemName={item.itemName}
+                isCollapsed={isCollapsed}
+                handleItemClick={handleItemClick}
+                currentItemSelected={currentItemSelected}
+              />
+            </div>
+          );
+        })}
         <div className="div-button">
           <button onClick={handleClick} className="collapse-button">
             {isCollapsed ? (

@@ -63,8 +63,10 @@ const CountryDetailsPage = () => {
           <div className="grid grid-rows-1 gap-0">
             <Link to={-1}>
               <div className="rows-span-1 -m-6">
-                <button className="mt-8 p-1 xs:ml-10 md:ml-8">
-                  <ArrowBackIosNewIcon className="arrow" />
+                <button className="mt-8 p-2 xs:ml-10 md:ml-8">
+                  <Link to={-1}>
+                    <ArrowBackIosNewIcon className="arrow" />
+                  </Link>
                 </button>
               </div>
             </Link>
