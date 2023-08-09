@@ -1,11 +1,11 @@
 .Menu {
   background-color: #749bc2;
+  height: 100%;
 }
 .Menu-collapsed {
   width: 6%;
 }
-.Menu-expanded {
-}
+
 button {
   background-color: #4682a9;
   border-color: #4682a9;
@@ -28,7 +28,7 @@ button {
 
 @media screen and (min-height: 350px) {
   .Menu {
-    height: 100vh;
+    height: 100%;
   }
 }
 
@@ -111,6 +111,29 @@ button {
 }
 
 @media screen and (min-width: 1100px) {
+  .Menu {
+    height: 100%;
+  }
+  .Menu-collapsed {
+    width: 12vh;
+  }
+  .Menu-expanded {
+    width: 25vh;
+  }
+  button {
+    background-color: #4682a9;
+    border-color: #4682a9;
+    border-radius: 5px;
+    align-items: baseline;
+  }
+
+  .div-button {
+    margin-bottom: 5px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1200px) {
   .Menu {
     height: 100%;
   }

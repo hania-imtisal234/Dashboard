@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import { Navigate } from "react-router-dom";
 import Navbar from "./Components/NavBar/Navbar.js";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import AllCountries from "./Components/AllCountries/AllCountries";
@@ -18,6 +19,7 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
+          <Route path="/" element={<Navigate to={HOME} />} />
           <Route path={HOME} element={<HomePage />} />
           <Route path={ALLCOUNTRIES} element={<AllCountriesPage />} />
           <Route path={COUNTRYDETAILS} element={<CountryDetailsPage />} />

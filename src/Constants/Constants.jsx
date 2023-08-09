@@ -8,7 +8,7 @@ import AllCountries from "../Components/AllCountries/AllCountries";
 export const WEBSITE_NAME = "CountryInsights";
 export const items = [
   { icon: <LanguageIcon />, itemName: "All Countries" },
-  { icon: <LocationOnIcon />, itemName: "My country" },
+  { icon: <LocationOnIcon />, itemName: " Neighbors " },
   { icon: <InfoIcon />, itemName: "General Info" },
 ];
 
@@ -25,6 +25,10 @@ export const CONTINENTS = [
 export const countryListAPI = "https://restcountries.com/v3.1/all";
 export const API_ERROR = "Can't fetch Data from API";
 
+export const emptyInputErrorMessage = "Please enter a country name.";
+export const invalidInputErrorMessage = "Please enter an Asian Country.";
+export const wrongSpellingErrorMessage = "Country not found.";
+export const noBorderErrorMessage = "This country has no defined borders.";
 export const paths = [
   { path: "AllCountries" },
   { path: "MyCountry" },
