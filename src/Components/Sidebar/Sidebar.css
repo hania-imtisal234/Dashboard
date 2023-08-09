@@ -1,9 +1,28 @@
 .Menu {
   background-color: #749bc2;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
 .Menu-collapsed {
-  width: 6%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.not-collapsed {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.div-button {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: auto;
+  padding-bottom: 10px;
 }
 
 button {
@@ -12,146 +31,8 @@ button {
   border-radius: 5px;
   text-align: center;
   margin: 2px;
-  margin-top: 240px;
 }
 
-.div-button {
-  margin-bottom: 5px;
-}
 .arrow {
   color: #f6f4eb;
-}
-
-.collapsed {
-  width: auto;
-}
-
-@media screen and (min-height: 350px) {
-  .Menu {
-    height: 100%;
-  }
-}
-
-@media screen and (min-width: 360px) {
-  .Menu {
-    max-width: 100%;
-    height: 100%;
-  }
-  .Menu-collapsed {
-    width: 8vh;
-  }
-  .Menu-expanded {
-    width: 14vh;
-  }
-  button {
-    background-color: #4682a9;
-    border-color: #4682a9;
-    border-radius: 5px;
-    text-align: center;
-    margin: 2px;
-    margin-top: 240px;
-  }
-
-  .div-button {
-    margin-bottom: 5px;
-    text-align: center;
-  }
-}
-
-@media screen and (min-width: 640px) {
-  .Menu {
-    max-width: 100%;
-    height: 100%;
-  }
-  .Menu-collapsed {
-    width: 10vh;
-  }
-  .Menu-expanded {
-    width: 15vh;
-  }
-  button {
-    background-color: #4682a9;
-    border-color: #4682a9;
-    border-radius: 5px;
-    text-align: center;
-    margin: 2px;
-    margin-top: 240px;
-  }
-
-  .div-button {
-    margin-bottom: 5px;
-    text-align: center;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .Menu {
-    max-width: 100%;
-    height: 100%;
-  }
-  .Menu-collapsed {
-    width: 10vh;
-  }
-  .Menu-expanded {
-    width: 20vh;
-  }
-  button {
-    background-color: #4682a9;
-    border-color: #4682a9;
-    border-radius: 5px;
-    text-align: center;
-    margin: 2px;
-    margin-top: 240px;
-  }
-
-  .div-button {
-    margin-bottom: 5px;
-    text-align: center;
-  }
-}
-
-@media screen and (min-width: 1100px) {
-  .Menu {
-    height: 100%;
-  }
-  .Menu-collapsed {
-    width: 12vh;
-  }
-  .Menu-expanded {
-    width: 25vh;
-  }
-  button {
-    background-color: #4682a9;
-    border-color: #4682a9;
-    border-radius: 5px;
-    align-items: baseline;
-  }
-
-  .div-button {
-    margin-bottom: 5px;
-    text-align: center;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .Menu {
-    height: 100%;
-  }
-  .Menu-collapsed {
-    width: 12vh;
-  }
-  .Menu-expanded {
-    width: 25vh;
-  }
-  button {
-    background-color: #4682a9;
-    border-color: #4682a9;
-    border-radius: 5px;
-    align-items: baseline;
-  }
-
-  .div-button {
-    margin-bottom: 5px;
-    text-align: center;
-  }
 }

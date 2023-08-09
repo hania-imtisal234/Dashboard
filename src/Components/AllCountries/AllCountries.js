@@ -92,14 +92,16 @@ const AllCountries = () => {
   }, [selectedContinent]);
 
   return (
-    <div>
+    <div className="h-screen">
       <div className="grid grid-rows-10 gap-3">
         <div className="rows-span-1 bg-my-white mt-6 mx-8">
           <div className="flex-row w-full">
             {CONTINENTS.map((continent) => (
               <button
                 key={continent}
-                className="my-2 gap-4 bg-dark-blue w-28"
+                className={`my-2 gap-4 bg-dark-blue w-28 ${
+                  selectedContinent === continent ? "bg-sky-blue" : ""
+                }`}
                 onClick={() => {
                   setSelectedContinent(continent);
                 }}
