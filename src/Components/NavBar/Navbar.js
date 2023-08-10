@@ -5,8 +5,18 @@ import FlagCircleIcon from "@mui/icons-material/FlagCircle";
 import { HOME } from "../../Routes/Routes.jsx";
 import { PROFILE } from "../../Routes/Routes.jsx";
 import { WEBSITE_NAME } from "../../Constants/Constants";
+import { useUserContext } from "../../Context/UserProvider";
+import ProfilePage from "../../Pages/Profile/Profile";
 
 function Navbar() {
+  const { userInfo, setUserInfo } = useUserContext();
+
+  const handleAvatarClick = () => {
+    setUserInfo({
+      name: "Hania Imtisal",
+      info: "Hi I'm hania",
+    });
+  };
   return (
     <div className="Header">
       <div className="Container">
@@ -26,7 +36,7 @@ function Navbar() {
             <Link className="custom-link">AboutUs </Link>
           </div>
           <Link to={PROFILE}>
-            <div className="avatar">
+            <div className="avatar" onClick={handleAvatarClick}>
               <AccountCircleIcon />
             </div>
           </Link>
