@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "../../Components/NavBar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import { WEBSITE_NAME } from "../../Constants/Constants";
 
 const HomePage = () => {
+  // const newContext = useContext(contextValue);
+  // newContext.setUserDataHanler
   return (
     <div className="bg-my-white h-screen">
       <div className="grid grid-cols-8 gap-0 ">

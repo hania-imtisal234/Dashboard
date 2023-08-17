@@ -1,6 +1,6 @@
 import "./AllCountries.css";
 import Card from "../Card/Card";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { CONTINENTS } from "../../Constants/Constants";
 import { countryListAPI } from "../../Constants/Constants";
 import { API_ERROR } from "../../Constants/Constants";
@@ -27,55 +27,55 @@ const AllCountries = () => {
           continent: country.continents,
         });
       }
-
-      let filteredCountryList = [];
-      switch (selectedContinent) {
-        case "all":
-          setCountryList(countryData);
-          break;
-        case Continents.Asia:
-          filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === Continents.Asia
-          );
-          setCountryList(filteredCountryList);
-          break;
-        case Continents.Africa:
-          filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === Continents.Africa
-          );
-          setCountryList(filteredCountryList);
-          break;
-        case Continents.Europe:
-          filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === Continents.Europe
-          );
-          setCountryList(filteredCountryList);
-          break;
-        case Continents.NorthAmerica:
-          filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === Continents.NorthAmerica
-          );
-          setCountryList(filteredCountryList);
-          break;
-        case Continents.SouthAmerica:
-          filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === Continents.SouthAmerica
-          );
-          setCountryList(filteredCountryList);
-          break;
-        case Continents.Australia:
-          filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === Continents.Australia
-          );
-          setCountryList(filteredCountryList);
-          break;
-        case Continents.Oceania:
-          filteredCountryList = countryData.filter(
-            (country) => country.continent[0] === Continents.Oceania
-          );
-          setCountryList(filteredCountryList);
-          break;
-      }
+      setCountryList(countryData);
+      // let filteredCountryList = [];
+      // switch (selectedContinent) {
+      //   case "all":
+      //     setCountryList(countryData);
+      //     break;
+      //   case Continents.Asia:
+      //     filteredCountryList = countryData.filter(
+      //       (country) => country.continent[0] === Continents.Asia
+      //     );
+      //     setCountryList(filteredCountryList);
+      //     break;
+      //   case Continents.Africa:
+      //     filteredCountryList = countryData.filter(
+      //       (country) => country.continent[0] === Continents.Africa
+      //     );
+      //     setCountryList(filteredCountryList);
+      //     break;
+      //   case Continents.Europe:
+      //     filteredCountryList = countryData.filter(
+      //       (country) => country.continent[0] === Continents.Europe
+      //     );
+      //     setCountryList(filteredCountryList);
+      //     break;
+      //   case Continents.NorthAmerica:
+      //     filteredCountryList = countryData.filter(
+      //       (country) => country.continent[0] === Continents.NorthAmerica
+      //     );
+      //     setCountryList(filteredCountryList);
+      //     break;
+      //   case Continents.SouthAmerica:
+      //     filteredCountryList = countryData.filter(
+      //       (country) => country.continent[0] === Continents.SouthAmerica
+      //     );
+      //     setCountryList(filteredCountryList);
+      //     break;
+      //   case Continents.Australia:
+      //     filteredCountryList = countryData.filter(
+      //       (country) => country.continent[0] === Continents.Australia
+      //     );
+      //     setCountryList(filteredCountryList);
+      //     break;
+      //   case Continents.Oceania:
+      //     filteredCountryList = countryData.filter(
+      //       (country) => country.continent[0] === Continents.Oceania
+      //     );
+      //     setCountryList(filteredCountryList);
+      //     break;
+      // }
 
       setIsLoading(false);
     } catch (err) {
@@ -87,6 +87,55 @@ const AllCountries = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  const filteredCountryList = useMemo(() => {
+    switch (selectedContinent) {
+      case "all":
+        return countryList;
+        break;
+      case Continents.Asia:
+        return countryList.filter(
+          (country) => country.continent[0] === Continents.Asia
+        );
+
+        break;
+      case Continents.Africa:
+        return countryList.filter(
+          (country) => country.continent[0] === Continents.Africa
+        );
+        break;
+      case Continents.Europe:
+        return countryList.filter(
+          (country) => country.continent[0] === Continents.Europe
+        );
+        break;
+      case Continents.NorthAmerica:
+        return countryList.filter(
+          (country) => country.continent[0] === Continents.NorthAmerica
+        );
+        break;
+      case Continents.SouthAmerica:
+        return countryList.filter(
+          (country) => country.continent[0] === Continents.SouthAmerica
+        );
+        break;
+      case Continents.Australia:
+        return countryList.filter(
+          (country) => country.continent[0] === Continents.Australia
+        );
+        break;
+      case Continents.Oceania:
+        return countryList.filter(
+          (country) => country.continent[0] === Continents.Oceania
+        );
+        break;
+    }
+  }, [countryList, selectedContinent]);
+
+  useEffect(() => {
+    setCountryList(filteredCountryList);
+  }, [filteredCountryList]);
+
   useEffect(() => {
     getData();
   }, [selectedContinent]);
