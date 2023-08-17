@@ -1,7 +1,7 @@
 import React from "react";
 import "./NeighboringCountries.css";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { API_ERROR } from "../../Constants/Constants";
 import { useEffect } from "react";
@@ -16,7 +16,7 @@ import { noBorderErrorMessage } from "../../Constants/Constants";
 const NeighboringCountries = () => {
   const [inputCountry, setInputCountry] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [asianCountriesList, setAsianCountiesList] = useState("all");
+  const [asianCountriesList, setAsianCountiesList] = useState([]);
   const [matchingBordersList, setMatchingBordersList] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [asianErrorMessage, setAsianErrorMessage] = useState("");
@@ -24,6 +24,7 @@ const NeighboringCountries = () => {
   const getInput = (event) => {
     setInputCountry(event.target.value);
   };
+
   const handleClick = async (e) => {
     if (!inputCountry.trim()) {
       setErrorMessage(emptyInputErrorMessage);
@@ -57,21 +58,23 @@ const NeighboringCountries = () => {
     }
   };
 
+  const filteredCountryList = useMemo(() => {
+    return asianCountriesList.filter(
+      (country) => country.continent && country.continent[0] === Continents.Asia
+    );
+  }, [asianCountriesList]);
+
   const getNeighbours = async () => {
     try {
       setIsLoading(true);
       const response = await fetch(countryListAPI);
       const countryData = await response.json();
 
-      let filteredCountryList = [];
-      filteredCountryList = countryData.filter(
-        (country) => country.continents[0] === Continents.Asia
-      );
-      setAsianCountiesList(filteredCountryList);
+      setAsianCountiesList(countryData);
 
       const getInputCountryData = async () => {
         try {
-          const url = `https://restcountries.com/v3.1/name/${inputCountry}/`;
+          const url = `https://restcountries.com/v3.1/name/${inputCountry}/?fullText=true`;
           const response = await fetch(url);
           if (response.status === 404) {
             setAsianErrorMessage(wrongSpellingErrorMessage);
@@ -80,47 +83,35 @@ const NeighboringCountries = () => {
           }
           setAsianErrorMessage("");
           const inputCountryData = await response.json();
-          let belongsToFilteredCountryList = false;
 
-          for (const country of filteredCountryList) {
-            if (country.cca3 === inputCountryData[0].cca3) {
-              belongsToFilteredCountryList = true;
-              break;
+          const { borders } = inputCountryData[0];
+          if (!borders) {
+            setAsianErrorMessage(noBorderErrorMessage);
+            setMatchingBordersList([]);
+            setIsLoading(false);
+            return;
+          }
+
+          const neighboringCountries = [];
+
+          for (const border of borders) {
+            const neighborCountry = countryData.find(
+              (country) => country.cca3 === border
+            );
+
+            if (
+              neighborCountry &&
+              neighborCountry.continents[0] === Continents.Asia
+            ) {
+              neighboringCountries.push({
+                name: neighborCountry.name.official,
+                flag: neighborCountry.flags.png,
+                continent: neighborCountry.continents,
+              });
             }
           }
-          if (belongsToFilteredCountryList) {
-            const { borders } = inputCountryData[0];
-            if (!borders) {
-              setAsianErrorMessage(noBorderErrorMessage);
-              setIsLoading(false);
-              return;
-            }
-
-            const inputCountryBorder = {
-              borders,
-            };
-
-            const neighbours = [];
-
-            for (const border of inputCountryBorder.borders) {
-              const neighborCountry = filteredCountryList.find(
-                (country) => country.cca3 === border
-              );
-
-              if (neighborCountry) {
-                neighbours.push({
-                  name: neighborCountry.name.official,
-                  flag: neighborCountry.flags.png,
-                  continent: neighborCountry.continents,
-                });
-              }
-            }
-            setMatchingBordersList(neighbours);
-            setIsLoading(false);
-          } else {
-            setAsianErrorMessage(invalidInputErrorMessage);
-            setIsLoading(false);
-          }
+          setMatchingBordersList(neighboringCountries);
+          setIsLoading(false);
         } catch (err) {
           setIsLoading(false);
           throw new Error(API_ERROR);
