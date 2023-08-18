@@ -5,11 +5,12 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useState } from "react";
 import { items } from "../../Constants/Constants";
 import { Link } from "react-router-dom";
+import { useUserContext } from "../../Context/UserProvider";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentItemSelected, setCurrentItemSelected] = useState("");
-
+  const { isDarkTheme } = useUserContext();
   const handleClick = () => {
     setIsCollapsed(!isCollapsed);
   };
@@ -19,8 +20,12 @@ const Sidebar = () => {
   };
 
   return (
-    <div className={`Menu ${isCollapsed ? "Menu-collapsed" : ""}`}>
-      <div className="not-collapsed">
+    <div
+      className={`Menu ${isCollapsed ? "Menu-collapsed" : ""} ${
+        isDarkTheme ? "bg-dark" : "bg-my-white"
+      }`}
+    >
+      <div className="h-screen not-collapsed">
         {items.map((item, index) => {
           return (
             <div
