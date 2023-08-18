@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Item.css";
 import { Link } from "react-router-dom";
-
+import { useUserContext } from "../../Context/UserProvider";
 const Item = ({
   icon,
   itemName = null,
@@ -10,7 +10,7 @@ const Item = ({
   currentItemSelected,
 }) => {
   const [isClicked, setIsClicked] = useState(false);
-
+  const { isDarkTheme } = useUserContext();
   const handleClick = () => {
     handleItemClick(itemName);
     setIsClicked(true);
@@ -18,14 +18,16 @@ const Item = ({
 
   return (
     <div
-      className={`Sidebar-Item ${isClicked ? "clicked" : "not-clicked"}`}
+      className={`Sidebar-Item ${isClicked ? "clicked" : "not-clicked"} ${
+        isDarkTheme ? "bg-dark" : "bg-my-white"
+      }`}
       onClick={handleClick}
     >
       {!isCollapsed ? (
         <div
           className={`item-container-Expanded ${
             currentItemSelected === itemName ? "bg-dark-blue" : ""
-          }`}
+          } ${isDarkTheme ? "bg-dark" : "bg-my-white"}`}
         >
           <Link to={`/${itemName.replace(/\s/g, "")}`}>
             <div

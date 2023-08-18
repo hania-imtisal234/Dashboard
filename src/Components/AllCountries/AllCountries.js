@@ -94,7 +94,7 @@ const AllCountries = () => {
 
   return (
     <div className="h-screen">
-      <div className="grid grid-rows-10 gap-3">
+      <div className="h-screen grid grid-rows-10 gap-3">
         <div className="rows-span-1 bg-my-white mt-6 mx-8">
           <div className="flex-row w-full">
             {CONTINENTS.map((continent) => (

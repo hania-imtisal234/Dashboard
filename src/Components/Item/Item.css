@@ -88,3 +88,11 @@
     height: 40px;
   }
 }
+
+.bg-dark {
+  background-color: #334155;
+}
+
+.bg-light {
+  background-color: #ffffff;
+}

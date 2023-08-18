@@ -1,6 +1,6 @@
 .Menu {
   background-color: #749bc2;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -9,12 +9,13 @@
   width: 30%;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .not-collapsed {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
 }
 
 .div-button {
@@ -35,4 +36,12 @@ button {
 
 .arrow {
   color: #f6f4eb;
+}
+
+.bg-dark {
+  background-color: #334155;
+}
+
+.bg-light {
+  background-color: #ffffff;
 }

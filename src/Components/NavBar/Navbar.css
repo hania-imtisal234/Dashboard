@@ -54,3 +54,11 @@
 .custom-link {
   color: #f6f4eb;
 }
+
+.bg-dark {
+  background-color: #334155;
+}
+
+.bg-light {
+  background-color: #ffffff;
+}
